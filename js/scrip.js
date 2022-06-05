@@ -1,6 +1,8 @@
 const mario = document.querySelector('.mario');
 const pipe = document.querySelector('.pipe');
 
+
+
 const jump = () => {
     mario.classList.add('jump');
 
@@ -34,16 +36,32 @@ const loop = setInterval(() => {
 
 }, 10);
 
-let score = document.querySelector("score");
+document.addEventListener('keydown', jump)
 
-let Interval = null;
+let score = document.querySelector('#score')
+let gameOver = document.querySelector('#gameOver')
+
+//declaraçao variavel 
+let interval = null;
 let playerScore = 0;
 
-function scoreCounter() {
+//funçao
+let scoreCounter = ()=> {
     playerScore++;
     score.innerHTML = `Score <b>${playerScore}</b>`;
 }
 
-Interval = setInterval(scoreCounter, 200)
+interval = setInterval(scoreCounter, 200);
 
-document.addEventListener('keydown', jump)
+
+window.addEventListener('keydown', (start)=> {
+    console.log(start);
+    if(start.code == 'Space')
+     {
+         gameOver.style.display = 'none';
+         pipe.classList.add('pipeActive');
+         clouds.firstElementChild.style.animation = 'clouds-animation 20s linear infinite';
+        //score
+         let playerScore = 0;
+        }
+})

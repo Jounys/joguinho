@@ -22,6 +22,10 @@
     height: 80px;
 }
 
+.pipeActive {
+    animation: pipeAnimate 1s linear infinite;
+}
+
 .game-board {
     width: 100%;
     height: 500px;
